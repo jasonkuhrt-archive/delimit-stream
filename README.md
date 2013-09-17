@@ -23,10 +23,10 @@ net.createServer(function(connection){
 
 ### API
 ##### `DelimitStream(delimiter, [options])`
-> `delimiter` `<String>`  
+> `delimiter` `<String>`
   The character(s) that define the delimiter. DelimitStream will push its buffer every time this delimiter is found in the stream
 >
-  `options` `<Object>`  
+  `options` `<Object>`
   The stream.Transform [options](http://nodejs.org/api/stream.html#stream_class_stream_transform). DelimitStream does not add any new options.
 
 ### Run Tests
