@@ -1,4 +1,4 @@
-# delimit-stream [![Code Climate](https://codeclimate.com/repos/529bb5bdc7f3a372d7037f44/badges/cb852a3c72220634fe99/gpa.png)](https://codeclimate.com/repos/529bb5bdc7f3a372d7037f44/feed) [![Build Status](https://travis-ci.org/jasonkuhrt/delimit-stream.png)](https://travis-ci.org/jasonkuhrt/delimit-stream) [![Dependency Status](https://gemnasium.com/jasonkuhrt/delimit-stream.png)](https://gemnasium.com/jasonkuhrt/delimit-stream) [![NPM version](https://badge.fury.io/js/delimit-stream.png)](http://badge.fury.io/js/delimit-stream)
+# delimit-stream [![Code Climate](https://codeclimate.com/github/jasonkuhrt/delimit-stream.png)](https://codeclimate.com/github/jasonkuhrt/delimit-stream) [![Build Status](https://travis-ci.org/jasonkuhrt/delimit-stream.png)](https://travis-ci.org/jasonkuhrt/delimit-stream) [![Dependency Status](https://gemnasium.com/jasonkuhrt/delimit-stream.png)](https://gemnasium.com/jasonkuhrt/delimit-stream) [![NPM version](https://badge.fury.io/js/delimit-stream.png)](http://badge.fury.io/js/delimit-stream)
 > Push messages from a stream partitioned by the given delimiter
 
 ### Install
