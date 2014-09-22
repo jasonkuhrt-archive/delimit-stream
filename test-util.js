@@ -9,31 +9,31 @@
 //     number of data events is checked
 
 exports.shouldStreamDataTimes = function shouldStreamDataTimes(stream, count, cb) {
-  var expectedValues = null;
+  var expectedValues = null
   if (Array.isArray(count)) {
-    expectedValues = count;
-    count = count.length;
+    expectedValues = count
+    count = count.length
   }
-  var outputCount = 0;
+  var outputCount = 0
   stream.on('data', function(data) {
     if (expectedValues) {
       var expectedValue = expectedValues[outputCount]
-      if (!Buffer.isBuffer(expectedValue)) data = data.toString();
-      data.should.equal(expectedValue);
+      if (!Buffer.isBuffer(expectedValue)) data = data.toString()
+      data.should.equal(expectedValue)
     }
-    outputCount++;
-  });
+    outputCount++
+  })
   // TODO: Why does "end" event not fire in SplitStream tests?
   stream.on('end', function() {
-    outputCount.should.equal(count);
-    if (typeof cb === 'function') cb();
-  });
+    outputCount.should.equal(count)
+    if (typeof cb === 'function') cb()
+  })
 }
 
 exports.execEachOnOwnTick = function execEachOnOwnTick(fn, fnArgs, thisBinding) {
   fnArgs.forEach(function(fnArg) {
     process.nextTick(function(){
-      fn.apply(thisBinding, fnArg);
-    });
-  });
+      fn.apply(thisBinding, fnArg)
+    })
+  })
 }
