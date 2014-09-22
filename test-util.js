@@ -23,7 +23,6 @@ exports.shouldStreamDataTimes = function shouldStreamDataTimes(stream, count, cb
     }
     outputCount++
   })
-  // TODO: Why does "end" event not fire in SplitStream tests?
   stream.on('end', function() {
     outputCount.should.equal(count)
     if (typeof cb === 'function') cb()
