@@ -87,9 +87,10 @@ SplitStream.prototype._transform = function(chunk, encoding, done) {
   done();
 };
 
-SplitStream.prototype._flush = function() {
+SplitStream.prototype._flush = function(cb) {
   this.abortMaybeDelim();
   this.sendBuffered();
+  cb();
 };
 
 SplitStream.prototype.abortMaybeDelim = function() {
