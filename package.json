@@ -1,6 +1,6 @@
 {
   "name": "delimit-stream",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Push messages from a stream partitioned by the given delimiter",
   "main": "index.js",
   "scripts": {
