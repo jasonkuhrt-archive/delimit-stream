@@ -87,9 +87,10 @@ SplitStream.prototype._transform = function(chunk, encoding, done){
   done()
 }
 
-SplitStream.prototype._flush = function(){
+SplitStream.prototype._flush = function(callback){
   this.abortMaybeDelim()
   this.sendBuffered()
+  callback()
 }
 
 SplitStream.prototype.abortMaybeDelim = function(){

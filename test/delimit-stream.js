@@ -1,3 +1,4 @@
+/* global describe, beforeEach, it, afterEach */
 var SplitStream = require('../');
 var testUtil = require('../test-util');
 var should = require('should');
@@ -57,18 +58,22 @@ describe('SplitStream', function(){
     it('preceding is ignored', function(done) {
       w('\r\nfoo\r\n');
       testUtil.shouldStreamDataTimes(ss, ['foo'], done);
+      ss.end()
     });
     it('trailing is ignored', function(done) {
       w('foo\r\n\r\n');
       testUtil.shouldStreamDataTimes(ss, ['foo'], done);
+      ss.end()
     });
     it('back-to-back is ignored', function(done) {
       w('foo\r\n\r\n\r\nbar\r\n');
       testUtil.shouldStreamDataTimes(ss, ['foo', 'bar'], done);
+      ss.end()
     });
     it('back-to-back across chunks is ignored', function(done) {
       w('foo\r', '\n\r\nbar\r','\n');
       testUtil.shouldStreamDataTimes(ss, ['foo', 'bar'], done);
+      ss.end()
     });
     it('starting in one chunk and ending in another', function(done) {
       w('foo\r', '\nbar\r\nz', 'e', 'd\r\nhau', '\r\nrai\r', 'tri\r\n');

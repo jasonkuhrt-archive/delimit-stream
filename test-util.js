@@ -22,9 +22,8 @@ exports.shouldStreamDataTimes = function shouldStreamDataTimes(stream, count, cb
       data.should.equal(expectedValue);
     }
     outputCount++;
-    if (outputCount === count && typeof cb === 'function') cb();
   });
-  // TODO why do end event not fire in SS tests?
+  // TODO: Why does "end" event not fire in SplitStream tests?
   stream.on('end', function() {
     outputCount.should.equal(count);
     if (typeof cb === 'function') cb();
