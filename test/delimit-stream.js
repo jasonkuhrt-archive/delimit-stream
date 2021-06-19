@@ -10,12 +10,12 @@ describe('SplitStream', function(){
     ss2 = new SplitStream('----', { objectMode:true })
     w = function() {
       Array.prototype.slice.call(arguments).forEach(function(foo) {
-        ss.write(Buffer(foo))
+        ss.write(Buffer.from(foo))
       })
     }
     w2 = function() {
       Array.prototype.slice.call(arguments).forEach(function(foo) {
-        ss2.write(Buffer(foo))
+        ss2.write(Buffer.from(foo))
       })
     }
   })
@@ -32,24 +32,24 @@ describe('SplitStream', function(){
     testUtil.shouldStreamDataTimes(ss, ['foo'])
   })
   it('works with Buffer chunks', function() {
-    ss.write(Buffer('foo\r\n'))
+    ss.write(Buffer.from('foo\r\n'))
     testUtil.shouldStreamDataTimes(ss, ['foo'])
   })
 
   describe('makes a stream output messages by breaking its data flow on a given deliminator of any length', function(){
     it('1 char deliminator \\n', function(done) {
       var ss = new SplitStream('\n', {objectMode:true})
-      ss.end(Buffer('foo\nbar\n'))
+      ss.end(Buffer.from('foo\nbar\n'))
       testUtil.shouldStreamDataTimes(ss, ['foo', 'bar'], done)
     })
     it('2 char deliminator \\r\\n', function(done) {
       var ss = new SplitStream('\r\n', {objectMode:true})
-      ss.end(Buffer('foo\r\nbar\r\n'))
+      ss.end(Buffer.from('foo\r\nbar\r\n'))
       testUtil.shouldStreamDataTimes(ss, ['foo', 'bar'], done)
     })
     it('3 char deliminator \\r\\n\\n', function(done) {
       var ss = new SplitStream('\r\n\n', {objectMode:true})
-      ss.end(Buffer('foo\r\n\nbar\r\n\n'))
+      ss.end(Buffer.from('foo\r\n\nbar\r\n\n'))
       testUtil.shouldStreamDataTimes(ss, ['foo', 'bar'], done)
     })
   })
