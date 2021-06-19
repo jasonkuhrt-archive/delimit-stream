@@ -1,7 +1,7 @@
 /* global describe, beforeEach, it, afterEach */
 var SplitStream = require('../')
 var testUtil = require('../test-util')
-var should = require('should')
+var should = require('chai').should()
 
 describe('SplitStream', function(){
   var ss, ss2, w, w2
@@ -20,12 +20,12 @@ describe('SplitStream', function(){
     }
   })
   it('is a Class', function() {
-    ss.should.be.instanceof(SplitStream)
+    ss.should.be.an.instanceof(SplitStream)
   })
   it('keeps given deliminator as a member array of char codes', function() {
     should.exist(ss.delim)
-    ss.delim.should.includeEql('\r'.charCodeAt())
-    ss.delim.should.includeEql('\n'.charCodeAt())
+    ss.delim.should.include('\r'.charCodeAt())
+    ss.delim.should.include('\n'.charCodeAt())
   })
   it('works with String chunks', function() {
     ss.write('foo\r\n')
