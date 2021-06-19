@@ -18,7 +18,7 @@ function SplitStream(deliminator, options){
 }
 
 SplitStream.prototype._transform = function(chunk, encoding, done){
-  chunk = Buffer.isBuffer(chunk) ? chunk : Buffer(chunk)
+  chunk = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk)
   var prevContentStarti = 0
   //console.log('\n=====================\n')
   for (var chunkIndex=0; chunkIndex < chunk.length; chunkIndex++) {
@@ -95,7 +95,7 @@ SplitStream.prototype._flush = function(callback){
 
 SplitStream.prototype.abortMaybeDelim = function(){
   if (this.maybeDelim.length) {
-    this.buffered.push(Buffer(this.maybeDelim))
+    this.buffered.push(Buffer.from(this.maybeDelim))
     this.maybeDelim = ''
   }
 }
